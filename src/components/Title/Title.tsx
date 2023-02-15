@@ -1,8 +1,11 @@
 import styles from './Title.module.css';
-const Title = () => {
+type Props = {
+    content: string
+}
+const Title = ({content} : Props) => {
     return (
         <>
-          <h1 className={styles.alpaca_title}>Alpaca Generator</h1>
+          <h1 className={styles.alpaca_title}>{content}</h1>
         </>
     );
 };

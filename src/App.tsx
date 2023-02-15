@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <AlpacaProvider>
-        <Title />
+        <Title content={"Créez votre avatar :) !"}/>
         <Alpaca/>
       </AlpacaProvider>
     </div>

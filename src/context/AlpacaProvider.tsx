@@ -1,17 +1,15 @@
 import React, { createContext, ComponentPropsWithoutRef } from 'react';
 
 type Alpaca = {
-    hair: Styles["hair"][number],
-    ears: Styles["ears"][number],
-    eyes: Styles["eyes"][number],
-    mouth: Styles["mouth"][number],
-    neck: Styles["neck"][number],
-    leg: Styles["leg"][number],
-    accessories: Styles["accessories"][number],
-    background: Styles["background"][number],
+    yeux: Styles["yeux"][number],
+    skin: Styles["skin"][number],
+    vetements: Styles["vetements"][number],
+    cheveux: Styles["cheveux"][number],
+    fond: Styles["fond"][number],
+    accessoires: Styles["accessoires"][number]
 }
 
-export type AlpacaElements = "hair" | "ears" | "eyes" | "mouth" | "neck" | "leg" | "accessories" | "background";
+export type AlpacaElements = "yeux" | "skin" | "vetements" | "cheveux" | "fond" | "accessoires" ;
 
 type Styles = {
     [key: string]: string[]
@@ -41,17 +39,15 @@ const useAlpacaContext = () => {
 
 const AlpacaProvider = ({children}:Props) => {
 
-    const [actualAccessory, setActualAccessory] = React.useState("hair");
+    const [actualAccessory, setActualAccessory] = React.useState("cheveux");
 
     const [alpaca, setAlpaca] = React.useState({
-        hair: "default",
-        ears: "default",
-        eyes: "default",
-        mouth: "default",
-        neck: "default",
-        leg: "default",
-        accessories: "earings",
-        background: "blue50"
+        accessoires: "col",
+        cheveux: "boucles-blond",
+        fond: "bleu",
+        skin: "skin-1",
+        vetements: "bleu",
+        yeux: "bleu"
     });
 
     const changeAlpaca = (alpaca:Alpaca, changedKey:AlpacaElements, changedValue:string) => {
@@ -60,17 +56,15 @@ const AlpacaProvider = ({children}:Props) => {
         setAlpaca(newAlpaca);
     }
 
-    const alpacaElements = ["hair","ears", "eyes", "mouth", "neck", "leg", "accessories", "background"];
-    
+    const alpacaElements = ["accessoires","cheveux", "fond", "skin", "vetement", "yeux"];
+
     const styles:Styles= {
-        hair: ["default", "bang", "curls", "elegant", "fancy", "short"],
-        ears: ["default", "tilt-backward", "tilt-forward"],
-        eyes: ["default", "angry", "naughty", "smart", "star"],
-        mouth: ["default", "astonished", "eating", "laugh", "tongue"],
-        neck: ["default", "bend-backward", "bend-forward"],
-        leg: ["default", "bubble-tea", "cookie", "game-console", "tilt-backward", "tilt-forward"],
-        accessories: ["earings", "flower", "glasses", "headphone"],
-        background: ["transparent", "blue50", "blue60", "blue70", "darkblue30", "darkblue50", "darkblue70", "green50", "green60", "green70", "grey40", "grey70", "grey80", "red50", "red60", "red70", "yellow50", "yellow60", "yellow70"]
+        accessoires: ["col", "col-noeud-bleu", "col-noeud-orange", "col-noeud-rose", "col-noeud-vert", "col-noeud-violet"],
+        cheveux: ["boucles-blond", "boucles-rouge", "boucles-chatain", "boucles-noir", "boucles-roux", "carre-blond", "carre-chatain", "carre-noir", "carre-roux", "court-blond", "court-noir", "court-roux", "houpette-blonde", "houpette-noire", "houpette-rouge", "punk-bleu", "punk-rouge", "punk-vert"],
+        fond: ["bleu", "orange", "rose", "turquoise", "vert"],
+        skin: ["skin-1", "skin-2", "skin-3", "skin-4", "skin-5", "skin-6", "skin-7"],
+        vetements: ["bleu", "noir", "orange", "rose", "rouge", "vert", "violet"],
+        yeux: ["bleu", "jaune", "lunettes", "lunettes-soleil", "marron", "rose", "rouge", "vert", "violet"]
     };
 
     const values = { actualAccessory, setActualAccessory, alpaca, setAlpaca, changeAlpaca, alpacaElements, styles };
