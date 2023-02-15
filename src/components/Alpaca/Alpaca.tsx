@@ -9,25 +9,23 @@ const Alpaca = () => {
     const myCanvas = React.useRef<HTMLCanvasElement>(null);
 
     const {alpaca} = useAlpacaContext();
+    console.log(alpaca)
 
 
     const draw = ( alpaca: any, actualAccessory?: string, style?: any) => {
         const canvas = myCanvas.current;
 
-        
+
         const imagesUrls = [
-            "/backgrounds/" + alpaca.background + ".png",
-            "/neck/" + alpaca.neck + ".png",
-            "/hair/" + alpaca.hair + ".png",
-            "/leg/" + alpaca.leg + ".png",
-            "/ears/" + alpaca.ears + ".png",
-            "/nose.png",
-            "/mouth/" + alpaca.mouth + ".png",
-            "/eyes/" + alpaca.eyes + ".png",
-            '/accessories/' + alpaca.accessories + '.png'
+            "/fond/" + alpaca.fond + ".png",
+            "/accessoires/" + alpaca.accessoires + ".png",
+            "/cheveux/" + alpaca.cheveux + ".png",
+            "/skin/" + alpaca.skin + ".png",
+            "/vetements/" + alpaca.vetements + ".png",
+            "/yeux/" + alpaca.yeux + ".png"
         ];
 
-    
+
         const ctx = canvas?.getContext('2d');
         if(canvas && ctx) {
             // @ts-ignore
@@ -35,9 +33,6 @@ const Alpaca = () => {
             // @ts-ignore
             const canvasHeight = canvas.height;
 
-
-            let noseImg = new Image(720,720);
-            noseImg.src = "/nose.png";
 
             if (ctx) {
                 Promise.all(imagesUrls.map(loadImage)).then((images) => {
