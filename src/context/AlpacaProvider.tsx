@@ -56,7 +56,7 @@ const AlpacaProvider = ({children}:Props) => {
         setAlpaca(newAlpaca);
     }
 
-    const alpacaElements = ["accessoires","cheveux", "fond", "skin", "vetement", "yeux"];
+    const alpacaElements = ["accessoires","cheveux", "fond", "skin", "vetements", "yeux"];
 
     const styles:Styles= {
         accessoires: ["col", "col-noeud-bleu", "col-noeud-orange", "col-noeud-rose", "col-noeud-vert", "col-noeud-violet"],
