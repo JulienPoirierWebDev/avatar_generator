@@ -18,11 +18,11 @@ const Alpaca = () => {
 
         const imagesUrls = [
             "/fond/" + alpaca.fond + ".png",
-            "/accessoires/" + alpaca.accessoires + ".png",
             "/cheveux/" + alpaca.cheveux + ".png",
             "/skin/" + alpaca.skin + ".png",
             "/vetements/" + alpaca.vetements + ".png",
-            "/yeux/" + alpaca.yeux + ".png"
+            "/yeux/" + alpaca.yeux + ".png",
+            "/accessoires/" + alpaca.accessoires + ".png"
         ];
 
 
